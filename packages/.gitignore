@@ -3,3 +3,6 @@
 /blaze-layout
 /iron-core
 /iron-dynamic-template
+/require
+/define
+/amd-manager

@@ -10,3 +10,5 @@ accounts-base
 accounts-password
 jquery
 less
+underscore
+define
