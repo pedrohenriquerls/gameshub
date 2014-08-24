@@ -1,0 +1,36 @@
+<template name="layout">
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="nav-bar right">
+       <ul class="button-group">
+         <li><a href="#" class="button">Link 1</a></li>
+         <li><a href="#" class="button">Link 2</a></li>
+         <li><a href="#" class="button">Link 3</a></li>
+         <li><a href="#" class="button">Link 4</a></li>
+       </ul>
+     </div>
+     <h1>Games HUB <small>Come play old games everywhere.</small></h1>
+     <hr/>
+   </div>
+ </div>
+ <div class="row">
+  <div class="large-9 columns" role="content">
+    {{>yield}}
+  </div>
+  <aside class="large-3 columns">
+    {{>yield region="sidebar"}}
+  </aside>
+</div>
+{{>footer}}
+</template>
+
+<template name="layoutWithoutHeaderAndFooter">
+  {{>yield}}
+  {{> yield region="tmp"}}
+</template>
+
+<template name="layoutWithoutHeader">
+  {{>yield}}
+  {{>footer}}
+  {{> yield region="tmp"}}
+</template>

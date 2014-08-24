@@ -1,0 +1,20 @@
+<template name="snes">
+	<div id="snes">
+		<div class="emscripten" id="status"></div>
+		<canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()"></canvas>    
+		<hr/>
+		<input type="text" id="fps" size="5"/>
+		<input type="file" onchange="snes_readfile(this)" />
+		<input type="button" id="start" value="start" onclick="snes_main()" />    
+		frameskip:
+		<input type="text" id="frameskip" size="5" value="0" />    
+		<input type="button" value="+" onclick="frameskip_adjust(1)" />
+		<input type="button" value="-" onclick="frameskip_adjust(-1)" />
+		<hr/>
+		<input type="button" id="test" value="test" onclick="snes_test(1)" />
+		<input type="button" id="test2" value="test2" onclick="snes_test(0)" />
+		<input type="button" value="fullscreen" onclick="RequestFullScreen()" />
+		<input type="button" value="quality" onclick="ToggleQuality()" />
+		<textarea class="emscripten" id="output" rows="8"></textarea>   
+	</div>
+</template>

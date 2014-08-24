@@ -1,0 +1,13 @@
+<template name="signIn">
+  <form action="/signin" id="signInForm" method="post" class="form-signin" role="form">
+    <h2 class="form-signin-heading">Please sign in</h2>
+    <input class="form-control email" id="signInEmail" type="text" name="email" placeholder="Email Address">
+    <input class="form-control password" id="signInPassword" type="password" name="password" placeholder="Password">
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+    </div>
+    <input class="btn-submit small round button" type="submit" value="Sign In">
+  </form>
+</template>
