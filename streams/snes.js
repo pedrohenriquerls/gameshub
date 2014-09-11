@@ -1,9 +1,13 @@
 snesStream = new Meteor.Stream('snes');
 
 if(Meteor.isClient){
-	snesStream.on('img_data', function(jsonImg) {
-		//var img = JSON.parse( jsonImg )
-	  console.log(jsonImg)
+	snesStream.on('img_data', function(img) {
+		console.log(img)
+		var image = new Image();
+		image.src = img
+		image.onload = function() {
+		  mainctx.drawImage(image, 0, 0);
+		};
 	});
 }
 
