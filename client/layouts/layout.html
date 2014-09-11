@@ -1,27 +1,19 @@
 <template name="layout">
-  <div class="row">
-    <div class="large-12 columns">
-      <div class="nav-bar right">
-       <ul class="button-group">
-         <li><a href="#" class="button">Link 1</a></li>
-         <li><a href="#" class="button">Link 2</a></li>
-         <li><a href="#" class="button">Link 3</a></li>
-         <li><a href="#" class="button">Link 4</a></li>
-       </ul>
-     </div>
-     <h1>Games HUB <small>Come play old games everywhere.</small></h1>
-     <hr/>
-   </div>
- </div>
- <div class="row">
-  <div class="large-9 columns" role="content">
+  <div class="ui fixed transparent main menu">
+    <div class="container">
+      <a class="launch item"><i class="icon list layout"></i> <b>GamesHUB</b></a>
+      
+      <div class="right menu">
+        <div class="vertically fitted borderless item">
+          right menu
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui grid">
     {{>yield}}
   </div>
-  <aside class="large-3 columns">
-    {{>yield region="sidebar"}}
-  </aside>
-</div>
-{{>footer}}
 </template>
 
 <template name="layoutWithoutHeaderAndFooter">

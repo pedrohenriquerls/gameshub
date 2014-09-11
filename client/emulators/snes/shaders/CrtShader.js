@@ -8,8 +8,8 @@ THREE.CrtShader = {
 
 	uniforms: {
 
-		"tDiffuse": { type: "t", value: null },
-		"size":    { type: "v2", value: new THREE.Vector2( 512, 512 ) },
+		"tDiffuse":  { type: "t", value: null },
+		"size":      { type: "v2", value: new THREE.Vector2( 512, 512 ) },
 		"globalTime":{ type: "f", value: 0.0 }
 
 	},
@@ -47,8 +47,8 @@ THREE.CrtShader = {
 			"coord *= 1.1;",
 
 			// deform coords
-			"coord.x *= 1.0 + pow((abs(coord.y) / bend), 1.65);",
-			"coord.y *= 1.0 + pow((abs(coord.x) / bend), 2.0);",
+			//"coord.x *= 1.0 + pow((abs(coord.y) / bend), 1.65);",
+			//"coord.y *= 1.0 + pow((abs(coord.x) / bend), 2.0);",
 
 			// transform back to 0.0 - 1.0 space
 			"coord  = (coord / 2.0) + 0.5;",

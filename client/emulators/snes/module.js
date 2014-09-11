@@ -1,7 +1,7 @@
 Template.snes.rendered = function(){
   frameskip=0    
-  frameskip_text=document.getElementById("frameskip")    
-  frameskip_text.value=frameskip
+  /*frameskip_text=document.getElementById("frameskip")    
+  frameskip_text.value=frameskip*/
   maincanvas=document.createElement( 'canvas' );//document.getElementById("canvas")
   if(maincanvas.webkitRequestFullScreen){
     RequestFullScreen=function(){maincanvas.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT)}
@@ -20,8 +20,6 @@ Template.snes.rendered = function(){
     preRun: [],
     postRun: [],
     print: (function() {
-      var element = document.getElementById('output');
-      element.value = ''; // clear browser cache
       return function(text) {
         console.log(text + "\n")
       };
@@ -36,7 +34,7 @@ Template.snes.rendered = function(){
     canvas: document.getElementById('canvas'),
     setStatus: function(text) {
       if (Module.setStatus.interval) clearInterval(Module.setStatus.interval);
-      document.getElementById('status').innerHTML = text;
+      console.log(text)
       if (text) {
         var counter = 0;
         Module.setStatus.interval = setInterval(function() {
