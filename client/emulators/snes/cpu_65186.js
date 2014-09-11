@@ -15030,7 +15030,7 @@ define("snes_processor", [], function(){
         mainctx.putImageData(imgData,-16,0)//Canvas render...
         snesStream.emit('img_data', maincanvas.toDataURL());
 
-        frameskipped+=frameskip
+        /*frameskipped+=frameskip
         frames++
         if (frames+frameskipped>=60){
           this_time=new Date().getTime()
@@ -15039,7 +15039,7 @@ define("snes_processor", [], function(){
           frameskipped=frames=0
         }
         var delay = 10//TODO: Controlar o delay do cpu baseado no framerate excedente a 60fps
-        setTimeout("snes_mainloop()", delay);
+        setTimeout("snes_mainloop()", delay);*/
         
       }  
     }

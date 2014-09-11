@@ -2,7 +2,7 @@ Template.snes.rendered = function(){
   frameskip=0    
   frameskip_text=document.getElementById("frameskip")    
   frameskip_text.value=frameskip
-  maincanvas=document.getElementById("canvas")
+  maincanvas=document.createElement( 'canvas' );//document.getElementById("canvas")
   if(maincanvas.webkitRequestFullScreen){
     RequestFullScreen=function(){maincanvas.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT)}
   }
@@ -23,20 +23,14 @@ Template.snes.rendered = function(){
       var element = document.getElementById('output');
       element.value = ''; // clear browser cache
       return function(text) {
-        // These replacements are necessary if you render to raw HTML
-        //text = text.replace(/&/g, "&amp;");
-        //text = text.replace(/</g, "&lt;");
-        //text = text.replace(/>/g, "&gt;");
-        //text = text.replace('\n', '<br>', 'g');
-        element.value += text + "\n";
-        element.scrollTop = 99999; // focus on bottom
+        console.log(text + "\n")
       };
     })(),
     printErr: function(text) {
       if (0) { // XXX disabled for safety typeof dump == 'function') {
         dump(text + '\n'); // fast, straight to the real console
       } else {
-        console.log(text);
+        console.error(text);
       }
     },
     canvas: document.getElementById('canvas'),

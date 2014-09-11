@@ -5,7 +5,7 @@
 		<hr/>
 		<input type="text" id="fps" size="5"/>
 		<input type="file" onchange="snes_readfile(this)" />
-		<input type="button" id="start" value="start" onclick="snes_main()" />    
+		<input type="button" id="start" value="start" onclick="loadRom('/snes/mario.smc')" />    
 		frameskip:
 		<input type="text" id="frameskip" size="5" value="0" />    
 		<input type="button" value="+" onclick="frameskip_adjust(1)" />
