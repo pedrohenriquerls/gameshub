@@ -1057,6 +1057,7 @@ body > .ui.grid {
   Horizontally Centered
 -----------------------*/
 /* Vertical Centered */
+.ui.left.aligned,
 .ui.left.aligned.grid,
 .ui.left.aligned.grid > .row > .column,
 .ui.left.aligned.grid > .column,
@@ -1064,6 +1065,7 @@ body > .ui.grid {
 .ui.grid > .left.aligned.row > .column {
   text-align: left;
 }
+.ui.center.aligned,
 .ui.center.aligned.grid,
 .ui.center.aligned.grid > .row > .column,
 .ui.center.aligned.grid > .column,
@@ -1071,6 +1073,7 @@ body > .ui.grid {
 .ui.grid > .center.aligned.row > .column {
   text-align: center;
 }
+.ui.right.aligned,
 .ui.right.aligned.grid,
 .ui.right.aligned.grid > .row > .column,
 .ui.right.aligned.grid > .column,

@@ -1,0 +1,21 @@
+<template name="room_item">
+  <div class="item">
+		<div class="content">
+			{{#if private}}
+    	<i class="icon-lock"></i>
+      {{else}}
+      <i class="icon-unlock"></i>
+      {{/if}}
+      <div class="name" style="display: inline-block">{{capitalize title}}</div>
+    </div>
+    <a href="{{pathFor 'room' _id=_id}}">
+      <div class="image" style="min-height: 300px">
+        <img src="{{img}}">
+      </div>
+    </a>
+  </div>
+</template>
+
+<template name="room">
+  coisas de dentro da sala
+</template>

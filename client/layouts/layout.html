@@ -1,19 +1,30 @@
 <template name="layout">
-  <div class="ui fixed transparent main menu">
+  <div class="ui large fixed transparent main menu">
     <div class="container">
-      <a class="launch item"><i class="icon list layout"></i> <b>GamesHUB</b></a>
+      <a class="launch item" href="{{pathFor 'home'}}">
+        <i class="icon-gamepad"></i> 
+        <b>GamesHUB</b>
+      </a>
       
       <div class="right menu">
-        <div class="vertically fitted borderless item">
-          right menu
+        <div class="ui item">
+          <div class="ui basic button" id="create_room_btn">
+            <i class="icon plus"></i>
+            New Room
+          </div>
         </div>
+
+        {{#if currentUser}}
+          {{> signOut}}
+        {{/if}}
       </div>
     </div>
   </div>
 
-  <div class="ui grid">
+  <div class="main container" style="padding: 70px 15px">
     {{>yield}}
   </div>
+  {{> yield region="tmp"}}
 </template>
 
 <template name="layoutWithoutHeaderAndFooter">

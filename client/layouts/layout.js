@@ -1,8 +1,9 @@
 Template.layout.helpers({
-  currentProjectName: function(){
-    return Session.get('currentProjectName')
-  },
-  currentProjectId: function(){
-    return Session.get('currentProjectId')
-  }
+  
+})
+
+Template.layout.events({
+	'click #create_room_btn': function(e, t) {
+		$('#create_room').modal('show')
+	}
 })
