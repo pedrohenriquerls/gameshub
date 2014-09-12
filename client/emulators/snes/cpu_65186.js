@@ -15028,7 +15028,7 @@ define("snes_processor", [], function(){
           data[_i++]=(v>>16)&0xff     
         }
         mainctx.putImageData(imgData,-16,0)//Canvas render...
-        snesStream.emit('img_data', maincanvas.toDataURL());
+        snesStream.emit(Session.get("current_room"), {img: maincanvas.toDataURL(), ownerId: Meteor.user()._id});
 
         /*frameskipped+=frameskip
         frames++

@@ -17,5 +17,17 @@
 </template>
 
 <template name="room">
-  coisas de dentro da sala
+  <div class="ui two column page grid">
+    <div class="eleven wide column">
+      {{#if isOwner}}
+      {{> UI.dynamic template=view}}
+      {{else}}
+      <!-- {{> guest}} -->
+      dude u are a fuckin guest
+      {{/if}}
+    </div>
+    <div class="five wide column">
+      <!-- {{> room_chat}} -->
+    </div>
+  </div>
 </template>

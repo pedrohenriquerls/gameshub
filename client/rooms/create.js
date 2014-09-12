@@ -20,9 +20,11 @@ Template.create_room.events({
 			password: tmpl.$("#password").val()
 		}
 
-		console.log(newRoom)
-
 		var newRoomId = Rooms.insert(newRoom)
-		Router.go("/room/"+newRoomId)
+
+		if(newRoomId){
+			$('#create_room').modal('hide')
+			Router.go("/room/"+newRoomId)
+		}
 	}
 })
