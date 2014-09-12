@@ -1,0 +1,28 @@
+/* Make clicks pass-through */
+#nprogress {
+  pointer-events: none;
+
+  .spinner-icon {
+  	display: none;
+		border-top-color: #A2125D;
+		border-left-color: #A2125D;
+		width: 30px;
+		border-width: 3px;
+		height: 30px;
+	}
+
+	.bar {
+		margin-top: 46px;
+		background: black;
+	}
+
+	.peg {
+		box-shadow: 0 0 10px #ffa, 0 0 5px #EE007C;
+	}
+
+	.spinner {
+		left: 15px;
+		right: auto;
+		top: 15px;
+	}
+}
