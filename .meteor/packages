@@ -5,12 +5,13 @@
 
 standard-app-packages
 autopublish
-iron-router
+cmather:iron-router@0.8.2
 accounts-base
 accounts-password
 jquery
 less
 underscore
-define
-streams
+arunoda:streams@0.1.17
 three.js
+mrt:define
+
