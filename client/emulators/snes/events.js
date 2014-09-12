@@ -116,8 +116,9 @@ Template.snes.created = function(){
 
   init = function() {
 
-    container = document.getElementById( 'snes' );
-    //document.body.appendChild( container );
+    container = document.createElement( 'div' );
+    var snes_div = document.getElementById("snes")
+    snes_div.appendChild( container );
 
     scene = new THREE.Scene();
     
@@ -195,10 +196,14 @@ Template.snes.created = function(){
 
   animate = function() {
 
-    requestAnimationFrame( animate );
-
-    render();
-
+  	if(Session.get("current_room")){
+  		requestAnimationFrame( animate );
+  		render();
+  	}else{
+  		camera = scene = renderer = composer = null
+  		container.remove()
+    	throw "error"
+    }
   }
 
   render = function() {
@@ -249,7 +254,7 @@ Template.snes.created = function(){
 			init();
 			animate();
 		};
-		request.open('GET', "/snes/mario.smc", true);
+		request.open('GET', url, true);
 		request.responseType = "arraybuffer";
 		request.send();
 	}

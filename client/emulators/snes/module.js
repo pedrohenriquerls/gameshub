@@ -59,4 +59,6 @@ Template.snes.rendered = function(){
   require('snes_processor', function (snesProcessor) {
     snesProcessor.setModule(Module);
   });
+
+  loadRom(Session.get("game_path"))
 }

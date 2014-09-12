@@ -1,4 +1,7 @@
 Template.games_list.helpers({
+	hasGames: function(){
+		return (Games.find({}).count() > 0)
+	},
 	games: function(){
 		return Games.find({})//ownerId: Meteor.user()._id})
 	}
@@ -15,12 +18,14 @@ Template.games_list.events({
 			var gameInstance = Games.findOne({_id: $game.data("id")})
 
 			Session.set("view", gameInstance.platform)
-			Session.set("game_path", gameInstance.path)
+			Session.set("game_path", gameInstance.romPath)
 
-			currentRoom.playingNow = gameInstance.name
-			currentRoom.img = gameInstance.img
+			var doc = {
+				playingNow: gameInstance.name,
+				img: gameInstance.img
+			}
 
-			Rooms.update(currentRoom._id, currentRoom)
+			Rooms.update(currentRoom._id, {$set: doc})
 		}
 	}
 })

@@ -1,5 +1,5 @@
 <template name="room_item">
-  <div class="item">
+  <div class="item" data-id="{{_id}}">
 		<div class="content">
 			{{#if private}}
     	<i class="icon-lock"></i>
@@ -8,23 +8,19 @@
       {{/if}}
       <div class="name" style="display: inline-block">{{capitalize title}}</div>
     </div>
-    <a href="{{pathFor 'room' _id=_id}}">
-      <div class="image" style="min-height: 300px">
-        <img src="{{img}}">
-      </div>
-    </a>
+    <div class="image" style="min-height: 300px">
+      <img src="{{img}}"/>
+    </div>
+    <div class="content">
+      {{playingNow}}
+    </div>
   </div>
 </template>
 
 <template name="room">
   <div class="ui two column page grid">
     <div class="eleven wide column">
-      {{#if isOwner}}
       {{> UI.dynamic template=view}}
-      {{else}}
-      <!-- {{> guest}} -->
-      dude u are a fuckin guest
-      {{/if}}
     </div>
     <div class="five wide column">
       <!-- {{> room_chat}} -->

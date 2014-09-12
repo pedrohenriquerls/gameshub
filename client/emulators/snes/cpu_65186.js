@@ -13210,7 +13210,7 @@ define("snes_processor", [], function(){
         window.requestAnimationFrame || (window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame || window.oRequestAnimationFrame || window.setTimeout);
         window.requestAnimationFrame(a)
       });
-      Module.pauseMainLoop = (function () {});
+      Module.pauseMainLoop = (function () {Gm = null});
       Module.resumeMainLoop = (function () {
         Gm && (Gm = ha, ga())
       });
@@ -15028,7 +15028,10 @@ define("snes_processor", [], function(){
           data[_i++]=(v>>16)&0xff     
         }
         mainctx.putImageData(imgData,-16,0)//Canvas render...
-        snesStream.emit(Session.get("current_room"), {img: maincanvas.toDataURL(), ownerId: Meteor.user()._id});
+        gameStream.emit(Session.get("current_room"), {
+          img: maincanvas.toDataURL(), 
+          ownerId: Meteor.user()._id
+        });
 
         /*frameskipped+=frameskip
         frames++
