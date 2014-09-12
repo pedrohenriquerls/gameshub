@@ -1,10 +1,11 @@
 <template name="game">
 	<div class="item play_game" data-id="{{_id}}"> 
-    <div class="image">
-      <img src="{{img}}">
+    <div class="ui image" >
+      <img src="{{img}}" style="height:161px; width:265px">
     </div>
     <div class="content">
       <div class="name" style="display: inline-block">{{capitalize name}}</div>
+      <p class="description"></p>
     </div>
   </div>
 </template>

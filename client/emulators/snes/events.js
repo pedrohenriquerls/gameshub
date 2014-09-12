@@ -156,7 +156,7 @@ Template.snes.created = function(){
       composer = new THREE.EffectComposer( renderer );
 
       composer.addPass( renderModel );
-      composer.addPass( effectCrt );
+      //composer.addPass( effectCrt );
       composer.addPass( effectCopy );
 
       container.appendChild( renderer.domElement );
