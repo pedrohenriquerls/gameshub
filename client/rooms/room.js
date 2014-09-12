@@ -6,17 +6,7 @@ Template.room.created = function(){
 		Session.set("view", "games_list")
 	else{
 		Session.set("view", "room_guest")
-
-		gameStream.on(currentRoom._id, function(data) {
-			console.log(data)
-			var image = new Image();
-			image.src = data.img
-			image.onload = function() {
-			  //mainctx.drawImage(image, 0, 0);
-			};
-		});
 	}
-		
 }
 
 Template.room.destroyed = function(){
@@ -24,6 +14,8 @@ Template.room.destroyed = function(){
 
 	if(currentRoom.ownerId == Meteor.userId())
 		Rooms.update(currentRoom._id, {$set: {closed: true}})
+	else
+		gameStream.removeListener(Session.get("current_room"))
 
 	Session.set("current_room", null)
 }

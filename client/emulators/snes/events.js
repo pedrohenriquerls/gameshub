@@ -200,6 +200,8 @@ Template.snes.created = function(){
   		requestAnimationFrame( animate );
   		render();
   	}else{
+      gameStream.removeAllListeners(Session.get("current_room"))
+      gameStream.close(Session.get("current_room"))
   		camera = scene = renderer = composer = null
   		container.remove()
     	throw "error"
