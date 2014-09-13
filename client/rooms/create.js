@@ -15,16 +15,22 @@ Template.create_room.events({
 		}
 	},
 	"click #create_btn": function(e, tmpl){
+		var $title = tmpl.$("#title")
 		var newRoom = {
-			title: tmpl.$("#title").val(),
+			title: $title.val(),
 			password: tmpl.$("#password").val()
 		}
 
-		var newRoomId = Rooms.insert(newRoom)
+		if(newRoom.title.replace(/\s/g, '') != ""){
+			$title.parent().removeClass("error")
+			var newRoomId = Rooms.insert(newRoom)
 
-		if(newRoomId){
-			$('#create_room').modal('hide')
-			Router.go("/room/"+newRoomId)
+			if(newRoomId){
+				$('#create_room').modal('hide')
+				Router.go("/room/"+newRoomId)
+			}	
+		}else{
+			$title.parent().addClass("error")
 		}
 	}
 })

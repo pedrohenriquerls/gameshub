@@ -12,9 +12,10 @@ Template.room.created = function(){
 Template.room.destroyed = function(){
 	var currentRoom = this.data
 
-	if(currentRoom.ownerId == Meteor.userId())
-		Rooms.update(currentRoom._id, {$set: {closed: true}})
-	else
+	if(currentRoom.ownerId == Meteor.userId()){
+		Rooms.update(Session.get("current_room"), {$set: {closed: true}})
+		gameStream.close(Session.get("current_room"))
+	}else
 		gameStream.removeListener(Session.get("current_room"))
 
 	Session.set("current_room", null)
