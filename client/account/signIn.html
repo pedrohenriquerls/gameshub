@@ -5,22 +5,51 @@
   </div>
   {{signInMessage}}
   <div class="content">
-    <div class="ui form segment">
-      <div class="field">
-        <div class="ui input">
-          <input type="text" placeholder="Email Address" id="email">
+    <div class="ui two column middle aligned relaxed grid basic segment">
+      <div class="column" style="margin: 10px 0">
+        <div class="ui form segment">
+          <div class="field">
+            <div class="ui input">
+              <input type="text" placeholder="Email Address" id="email">
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui input">
+              <input type="password" id="password" placeholder="Password">
+            </div>
+          </div>
+          <div class="ui center aligned">
+            <div class="ui buttons">
+              <div class="ui button close">Cancel</div>
+              <div class="or"></div>
+              <div class="ui positive button" id="signin_btn">SignIn</div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="field">
-        <div class="ui input">
-          <input type="password" id="password" placeholder="Password">
-        </div>
+      <div class="ui vertical divider">
+        Or
       </div>
-      <div class="ui center aligned">
-        <div class="ui buttons">
-          <div class="ui button close">Cancel</div>
-          <div class="or"></div>
-          <div class="ui positive button" id="signin_btn">SignIn</div>
+      <div class="column">
+        <div class="ui form center aligned">
+          <div class="field">
+          <div class="ui facebook button">
+            <i class="facebook icon"></i>
+            Facebook
+          </div>
+          </div>
+          <div class="field">
+          <div class="ui twitter button">
+            <i class="twitter icon"></i>
+            Twitter
+          </div>
+          </div>
+          <div class="field">
+          <div class="green ui labeled icon button">
+            <i class="signup icon"></i>
+            Sign Up
+          </div>
+          </div>
         </div>
       </div>
     </div>
