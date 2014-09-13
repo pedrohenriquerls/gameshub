@@ -15,13 +15,19 @@ Template.create_room.events({
 		}
 	},
 	"click #create_btn": function(e, tmpl){
+		if(!Meteor.user()){
+			$('#create_room').modal('hide')
+			$("#sign_in").modal("show");
+			return 
+		}
+			
 		var $title = tmpl.$("#title")
 		var newRoom = {
 			title: $title.val(),
 			password: tmpl.$("#password").val()
 		}
 
-		if(newRoom.title.replace(/\s/g, '') != ""){
+		if(trimInput(newRoom.title) != ""){
 			$title.parent().removeClass("error")
 			var newRoomId = Rooms.insert(newRoom)
 

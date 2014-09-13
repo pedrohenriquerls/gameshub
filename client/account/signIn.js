@@ -1,20 +1,28 @@
 Template.signIn.events({
-  'submit #signInForm': function(e, t) {
-    e.preventDefault();
-
-    var signInForm = $(e.currentTarget),
-    email = trimInput(signInForm.find('.email').val().toLowerCase()),
-    password = signInForm.find('.password').val();
+  'click #signin_btn': function(e, tmpl) {
+    var email = trimInput(tmpl.$('#email').val().toLowerCase()),
+    password = tmpl.$('#password').val();
 
     if (isNotEmpty(email) && isEmail(email) && isNotEmpty(password) && isValidPassword(password)) {
       Meteor.loginWithPassword(email, password, function(err) {
         if (err) {
-          Session.set('alert', 'We\'re sorry but these credentials are not valid.');
+          tmpl.$('#email').parent().addClass("error")
+          tmpl.$('#password').parent().addClass("error")
+          Session.set('sign_in_message', 'Credentials are not valid.');
         } else {
           Router.go("home");
         }
       });
+    }else{
+      tmpl.$('#email').parent().addClass("error")
+      tmpl.$('#password').parent().addClass("error")
     }
     return false;
   },
 });
+
+Template.signIn.helpers({
+  signInMessage: function(){
+    return Session.get('sign_in_message')
+  }
+})

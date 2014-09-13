@@ -1,13 +1,28 @@
 <template name="signIn">
-  <form action="/signin" id="signInForm" method="post" class="form-signin" role="form">
-    <h2 class="form-signin-heading">Please sign in</h2>
-    <input class="form-control email" id="signInEmail" type="text" name="email" placeholder="Email Address">
-    <input class="form-control password" id="signInPassword" type="password" name="password" placeholder="Password">
-    <div class="checkbox">
-      <label>
-        <input type="checkbox" value="remember-me"> Remember me
-      </label>
+  <i class="close icon"></i>
+  <div class="header">
+    Welcome to GamesHUB
+  </div>
+  {{signInMessage}}
+  <div class="content">
+    <div class="ui form segment">
+      <div class="field">
+        <div class="ui input">
+          <input type="text" placeholder="Email Address" id="email">
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui input">
+          <input type="password" id="password" placeholder="Password">
+        </div>
+      </div>
+      <div class="ui center aligned">
+        <div class="ui buttons">
+          <div class="ui button close">Cancel</div>
+          <div class="or"></div>
+          <div class="ui positive button" id="signin_btn">SignIn</div>
+        </div>
+      </div>
     </div>
-    <input class="btn-submit small round button" type="submit" value="Sign In">
-  </form>
+  </div>
 </template>
