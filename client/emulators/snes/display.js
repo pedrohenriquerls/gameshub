@@ -23,13 +23,13 @@ define("display", [], function(){
 
   var maincanvas = null
   var me = {
-	  init: function(loaded, canvas, snesDivId) {
+	  init: function(loaded, canvas, divId) {
 	  	snesLoaded = loaded
 	  	maincanvas = canvas
 
 	    container = document.createElement( 'div' );
-	    var snes_div = document.getElementById(snesDivId ? snesDivId:"snes")
-	    snes_div.appendChild( container );
+	    var parent = document.getElementById(divId)
+	    parent.appendChild( container );
 
 	    scene = new THREE.Scene();
 	    

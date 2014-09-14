@@ -52,7 +52,7 @@ Template.snes.rendered = function(){
       Module.FS_createDataFile("/", "_.smc", new Uint8Array(request.response) , true, true);
       core.snesStart();
 
-      display.init(true, Module.mainCanvas);
+      display.init(true, Module.mainCanvas, "snes");
       display.animate();
     };
     request.open('GET', url, true);

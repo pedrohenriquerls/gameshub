@@ -23,6 +23,11 @@ Template.room.destroyed = function(){
 		
 	if(roomConnection)
 		roomConnection.close()
+
+	window.keyup   = undefined
+	window.keydown = undefined
+
+	window.resquestAnimationFrame = undefined
 }
 
 Template.room.helpers({
