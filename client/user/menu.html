@@ -1,0 +1,33 @@
+<template name="user_menu">
+	{{#if currentUser}}
+	<div class="ui thin vertical inverted labeled icon sidebar menu" id="user_menu">
+    <div class="item">
+      <a href="/">
+        <b>Introduction</b>
+      </a>
+      <div class="menu">
+        
+          <a class="item" href="/introduction/definitions.html">Definitions</a>
+        
+          <a class="item" href="/introduction/overview.html">Overview</a>
+        
+          <a class="item" href="/introduction/types.html">Types</a>
+        
+          <a class="item" href="/introduction/variations.html">Variations</a>
+        
+          <a class="item" href="/introduction.html">What's Different</a>
+        
+      </div>
+    </div>
+  </div>
+	{{/if}}
+</template>
+
+<template name="user_menu_launch_btn">
+  {{#if currentUser}}
+  <div class="ui black thin launch right attached button" id="user_menu_launch_btn">
+    <i class="icon icon-angle-left"></i>
+    <img class="ui avatar image" src="/snes/smc.png">
+  </div>
+  {{/if}}
+</template>

@@ -1,11 +1,15 @@
 Template.room.created = function(){
 	var currentRoom = this.data
-	Session.set("current_room", currentRoom._id)
 
-	if(currentRoom.ownerId == Meteor.userId() || !currentRoom.ownerId)
-		Session.set("view", "games_list")
-	else{
-		Session.set("view", "room_guest")
+	if(currentRoom){
+		if(!Session.set("current_room"))
+			Session.set("current_room", currentRoom._id)
+
+		if(currentRoom.ownerId == Meteor.userId() || !currentRoom.ownerId)
+			Session.set("view", "games_list")
+		else{
+			Session.set("view", "room_guest")
+		}
 	}
 }
 

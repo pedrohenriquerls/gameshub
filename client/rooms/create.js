@@ -1,4 +1,3 @@
-
 Template.create_room.events({
 	"keyup #password": function(e, tmpl){
 		var $password = tmpl.$("#password")

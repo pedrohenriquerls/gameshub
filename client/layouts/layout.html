@@ -1,4 +1,5 @@
 <template name="layout">
+  {{> user_menu}}
   <div class="ui large fixed transparent main menu">
     <div class="container">
       <a class="launch item" href="{{pathFor 'home'}}">
@@ -9,14 +10,13 @@
       <div class="right menu">
         {{> yield region="rightMenu"}}
 
-        {{#if currentUser}}
-          {{> signOut}}
-        {{/if}}
+        {{> signOut}}
       </div>
     </div>
   </div>
 
-  <div class="main container" style="padding: 70px 15px">
+  <div class="main container">
+    {{>user_menu_launch_btn}}
     {{>yield}}
   </div>
   {{> yield region="tmp"}}

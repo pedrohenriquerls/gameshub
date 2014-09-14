@@ -84,7 +84,6 @@ Template.snes.created = function(){
 		reader.readAsArrayBuffer(f)
 	}           
 	snes_main = function(){
-		document.getElementById("start").disabled=true
 		snes_init()	            
 		reboot_romnum=-1	  	   
 		frames=0	   

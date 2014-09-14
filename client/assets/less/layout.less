@@ -18,87 +18,22 @@ body {
   min-width: 320px;
 }
 
-.ui.header {
-  font-family: 'Source Sans Pro', "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-}
-
-/*******************************
-            Global
-*******************************/
-
-/*-------------------
-        Sidebar
---------------------*/
-
-#feed .sidebar {
-  overflow: visible;
-}
-
-/*-------------------
-        Grid
---------------------*/
-
-#feed .grid {
-  height: 100%;
-}
-
-#feed > .grid > .column {
-  height: 100%;
-}
-
-/*-------------------
-       Inbox
---------------------*/
-
-#feed .inbox.tab {
-  background-color: #FFFFFF;
-}
-
-#feed .inbox.tab .item {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
-#feed .inbox.tab .item .rating {
-  margin-top: 0.2rem;
-}
-
-#feed .inbox.tab .item .description {
-  margin-left: 2em;
-}
-
-#feed .page {
-  float: right;
-  margin-top: 0.9em;
-}
-
-#feed .middle.column {
-  padding: 1em 2em;
-}
-
-#feed .middle.column h2 {
-  margin-top: 0em;
-}
-/*rtl:ignore*/
-#feed .right.column {
-  padding: 1em 2em;
-  background-color: #FAFAFA;
-}
-
-/*******************************
-          Responsive
-*******************************/
-
-@media only screen and (max-width : 1000px) {
-  #feed .inbox .date {
-    float: none;
-    margin-bottom: 0.5em;
+.main{
+  &.container{
+    padding: 70px 15px;
   }
 }
 
-@media only screen and (max-width : 1250px) {
-  /*rtl:ignore*/
-  #feed .left.column > .menu .item {
-    font-size: 1rem;
+#user_menu_launch_btn{
+  position: fixed;
+  top: 100px;
+  left: auto;
+  margin-left: -15px;
+
+  padding: 5px 0px 5px 0px;
+  z-index: 500;
+
+  .icon{
+    margin: 0 -5px;
   }
 }

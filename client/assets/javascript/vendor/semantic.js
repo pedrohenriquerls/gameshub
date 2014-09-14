@@ -6271,7 +6271,7 @@ $.fn.modal.settings = {
   duration      : 500,
   easing        : 'easeOutQuad',
   offset        : 0,
-  transition    : 'scale',
+  transition    : 'vertical flip',
 
   padding       : 30,
 
