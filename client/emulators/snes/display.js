@@ -1,4 +1,4 @@
-define("render", [], function(){
+define("display", [], function(){
 	var container;
 
   var camera, scene, renderer, composer;
@@ -20,11 +20,12 @@ define("render", [], function(){
   var fxaa;
 
   var snesLoaded = false;
+
+  var maincanvas = null
   var me = {
 	  init: function(loaded, canvas, snesDivId) {
 	  	snesLoaded = loaded
-	  	if(canvas)
-	  		maincanvas = canvas
+	  	maincanvas = canvas
 
 	    container = document.createElement( 'div' );
 	    var snes_div = document.getElementById(snesDivId ? snesDivId:"snes")

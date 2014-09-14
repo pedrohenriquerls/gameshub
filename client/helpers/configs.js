@@ -1,0 +1,1 @@
+window.cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame;

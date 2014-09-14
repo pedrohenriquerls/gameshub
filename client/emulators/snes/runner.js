@@ -1,22 +1,5 @@
 Template.snes.rendered = function(){
-  frameskip=0    
-  /*frameskip_text=document.getElementById("frameskip")    
-  frameskip_text.value=frameskip*/
-  maincanvas=document.createElement( 'canvas' );//document.getElementById("canvas")
-  if(maincanvas.webkitRequestFullScreen){
-    RequestFullScreen=function(){maincanvas.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT)}
-  }
-  else{
-    RequestFullScreen=function(){maincanvas.mozRequestFullScreen()}
-  }    
-  mainctx = maincanvas.getContext("2d");
-  maincanvas.width=256
-  maincanvas.height=224
-
-  imgData=mainctx.createImageData(288,224)
-  cout=document.getElementById("output")
-
-  Module = {
+  var Module = {
     preRun: [],
     postRun: [],
     print: (function() {
@@ -31,7 +14,6 @@ Template.snes.rendered = function(){
         console.error(text);
       }
     },
-    canvas: document.getElementById('canvas'),
     setStatus: function(text) {
       if (Module.setStatus.interval) clearInterval(Module.setStatus.interval);
       console.log(text)
@@ -60,5 +42,22 @@ Template.snes.rendered = function(){
     snesProcessor.setModule(Module);
   });
 
+  var core = require("snes_core")
+  core.setModule(Module)
+
+  var display = require("display")
+  function loadRom( url ) {
+    var request = new XMLHttpRequest();
+    request.onload = function(){
+      Module.FS_createDataFile("/", "_.smc", new Uint8Array(request.response) , true, true);
+      core.snesStart();
+
+      display.init(true, Module.mainCanvas);
+      display.animate();
+    };
+    request.open('GET', url, true);
+    request.responseType = "arraybuffer";
+    request.send();
+  }
   loadRom(Session.get("game_path"))
 }

@@ -15,9 +15,9 @@ Template.room_guest.rendered = function(){
 				guestCanvas.width=256
 				guestCanvas.height=224
 
-				var renderFilter = require("render")			
-				renderFilter.init(false, guestCanvas, "guestDisplay")
-				renderFilter.animate()
+				var display = require("display")			
+				display.init(false, guestCanvas, "guestDisplay")
+				display.animate()
 			}
     });
   });

@@ -1,6 +1,20 @@
 define("snes_processor", [], function(){
+  var frameskip=0
+  var maincanvas=document.createElement( 'canvas' );
+   
+  var mainctx = maincanvas.getContext("2d");
+  maincanvas.width=256
+  maincanvas.height=224
+
+  var imgData=mainctx.createImageData(288,224)
+  //Inio do PPU
+  for(var i=0;i<288*224*4;i+=4){     
+    imgData.data[i+3]=0xff
+  }
+
   return {
     setModule: function(Module){
+      Module.mainCanvas = maincanvas
       function aa(a) {
         throw a
       }
