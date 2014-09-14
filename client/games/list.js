@@ -11,7 +11,7 @@ Template.games_list.events({
 	"click .play_game": function(e, tmpl){
 		e.stopPropagation()
 
-		var currentRoom = Rooms.findOne({_id: Session.get("current_room")})
+		var currentRoom = tmpl.data
 
 		if(currentRoom.ownerId == Meteor.userId()){
 			var $game = $(e.currentTarget)

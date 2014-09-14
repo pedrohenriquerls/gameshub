@@ -106,10 +106,14 @@ define("render", [], function(){
 	  },
 
 	  animate: function() {
-	  	if(Session.get("current_room")){
-	  		requestAnimationFrame( me.animate );
-	  		me.render();
-	    }
+  		requestAnimationFrame( me.animate );
+  		me.render();
+
+  		peerJSInstance.on("close", function(){
+  			roomConnection = null
+
+  			throw "Room closed!!"
+  		})
 	  },
 
 	  render: function() {

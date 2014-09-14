@@ -2,12 +2,13 @@ Template.room.created = function(){
 	var currentRoom = this.data
 
 	if(currentRoom){
-		if(!Session.set("current_room"))
-			Session.set("current_room", currentRoom._id)
-
-		if(currentRoom.ownerId == Meteor.userId() || !currentRoom.ownerId)
-			Session.set("view", "games_list")
-		else{
+		if(currentRoom.ownerId == Meteor.userId() || !currentRoom.ownerId){
+			Session.set("view", "games_list")	
+			peerJSInstance.on("connection", function(conn){
+		    roomConnection = conn
+		  })
+		}else{
+			roomConnection = peerJSInstance.connect(currentRoom.ownerId)
 			Session.set("view", "room_guest")
 		}
 	}
@@ -17,12 +18,11 @@ Template.room.destroyed = function(){
 	var currentRoom = this.data
 
 	if(currentRoom.ownerId == Meteor.userId()){
-		Rooms.update(Session.get("current_room"), {$set: {closed: true}})
-		gameStream.close(Session.get("current_room"))
-	}else
-		gameStream.removeListener(Session.get("current_room"))
-
-	Session.set("current_room", null)
+		Rooms.update(currentRoom._id, {$set: {closed: true}})
+	}
+		
+	if(roomConnection)
+		roomConnection.close()
 }
 
 Template.room.helpers({

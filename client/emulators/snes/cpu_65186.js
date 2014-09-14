@@ -15027,12 +15027,11 @@ define("snes_processor", [], function(){
           data[_i++]=(v>>8)&0xff
           data[_i++]=(v>>16)&0xff     
         }
-        mainctx.putImageData(imgData,-16,0)//Canvas render...
-        gameStream.emit(Session.get("current_room"), {
-          img: maincanvas.toDataURL(), 
-          ownerId: Meteor.user()._id
-        });
 
+        mainctx.putImageData(imgData,-16,0)//Canvas render...
+        if(roomConnection)
+          roomConnection.send(maincanvas.toDataURL());
+        
         /*frameskipped+=frameskip
         frames++
         if (frames+frameskipped>=60){
