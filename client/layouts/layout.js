@@ -1,13 +1,11 @@
 Template.layout.rendered = function(){
 	Deps.autorun(function(){
-		if ( Meteor.userId() ) {
-			$('#sign_in').modal("hide")
-		}
+		$('#sign_in').modal("hide")
 	});
 }
 
 Template.layout.helpers({
-	  
+
 })
 
 Template.layout.events({
@@ -22,6 +20,6 @@ Template.layout.events({
 		}
 	},
 	'click #close_room_btn': function(e, tmpl){
-		Router.go("/rooms")
+		Router.go(Router.routes['home'].url({}))
 	}
 })

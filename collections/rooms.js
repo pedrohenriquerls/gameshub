@@ -15,5 +15,6 @@ Rooms.allow({
 
     return true
   },
-  update: ownsDocument
+  update: ownsDocument,
+  remove: ownsDocument
 });

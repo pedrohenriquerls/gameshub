@@ -12,6 +12,6 @@ Template.rooms_list.events({
 		var $room = $(e.currentTarget)
 		var roomId = $room.data("id")
 
-		Router.go("/room/"+roomId)
+		Router.go(Router.routes['room'].url({_id: roomId}))
 	}
 })

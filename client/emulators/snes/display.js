@@ -13,7 +13,7 @@ define("display", [], function(){
   var delta;
   var time;
   var oldTime;
-  
+
   var overlay, overlay2;
   var snesLayer, snesTexture;
   var effectCrt;
@@ -32,7 +32,7 @@ define("display", [], function(){
 	    parent.appendChild( container );
 
 	    scene = new THREE.Scene();
-	    
+
 	    camera = new THREE.PerspectiveCamera( 50, activeWidth / winHeight, 0, 0 );
 	    scene.add( camera )
 
@@ -71,8 +71,7 @@ define("display", [], function(){
 	      composer.addPass( renderModel );
 	      //composer.addPass( effectCrt );
 	      composer.addPass( effectCopy );
-		    
-
+				
 	      container.appendChild( renderer.domElement );
 	      has_gl = true;
 
@@ -109,12 +108,6 @@ define("display", [], function(){
 	  animate: function() {
   		requestAnimationFrame( me.animate );
   		me.render();
-
-  		peerJSInstance.on("close", function(){
-  			roomConnection = null
-
-  			throw "Room closed!!"
-  		})
 	  },
 
 	  render: function() {

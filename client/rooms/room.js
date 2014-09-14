@@ -3,9 +3,13 @@ Template.room.created = function(){
 
 	if(currentRoom){
 		if(currentRoom.ownerId == Meteor.userId() || !currentRoom.ownerId){
-			Session.set("view", "games_list")	
+			Session.set("view", "games_list")
 			peerJSInstance.on("connection", function(conn){
 		    roomConnection = conn
+
+				conn.on("close", function(){
+
+				})
 		  })
 		}else{
 			roomConnection = peerJSInstance.connect(currentRoom.ownerId)
@@ -20,7 +24,7 @@ Template.room.destroyed = function(){
 	if(currentRoom.ownerId == Meteor.userId()){
 		Rooms.update(currentRoom._id, {$set: {closed: true}})
 	}
-		
+
 	if(roomConnection)
 		roomConnection.close()
 

@@ -19,6 +19,10 @@ Template.signIn.events({
     }
     return false;
   },
+  "click #sigin_cancel_btn": function(e, tmpl){
+    $('#sign_in').modal("hide")
+    Router.go("home")
+  }
 });
 
 Template.signIn.helpers({
