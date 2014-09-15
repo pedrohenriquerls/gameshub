@@ -9,7 +9,7 @@ Meteor.startup(function () {
 		var smw = {
 			name: "Super Mario World",
 			img: "/snes/smc.png",
-			romPath: "/snes/mario.smc",
+			sourcePath: "/snes/mario.smc",
 			platform: "snes"
 		}
 		Games.insert(smw)
@@ -17,7 +17,7 @@ Meteor.startup(function () {
 		var mk = {
 			name: "Mortal Kombat 3",
 			img: "/snes/mortalKombat.png",
-			romPath: "/snes/mortal_kombat.smc",
+			sourcePath: "/snes/mortal_kombat.smc",
 			platform: "snes"
 		}
 		Games.insert(mk)

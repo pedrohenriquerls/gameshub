@@ -3,7 +3,6 @@ accounts-password@1.0.0
 amd:manager@0.0.5
 application-configuration@1.0.0
 arunoda:streams@0.1.17
-autopublish@1.0.0
 autoupdate@1.0.4
 binary-heap@1.0.0
 blaze-tools@1.0.0
@@ -40,6 +39,7 @@ mizzao:user-status@0.6.2
 mongo-livedata@1.0.3
 mrt:define@0.10.0
 mrt:nprogress@0.1.0
+mrt:publish-with-relations@0.1.5
 npm-bcrypt@0.7.7
 observe-sequence@1.0.1
 ordered-dict@1.0.0

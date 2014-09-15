@@ -11,6 +11,7 @@ Template.signIn.events({
           Session.set('sign_in_message', 'Credentials are not valid.');
         } else {
           Router.go("home");
+          $('#sign_in').modal("hide")
         }
       });
     }else{

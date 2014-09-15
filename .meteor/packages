@@ -4,7 +4,6 @@
 # but you can also edit it by hand.
 
 standard-app-packages
-autopublish
 cmather:iron-router@0.8.2
 accounts-base
 accounts-password
@@ -17,4 +16,5 @@ mrt:define
 mrt:nprogress
 pedrohenriquerls:peerjs
 mizzao:user-status
+mrt:publish-with-relations
 
