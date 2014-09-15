@@ -18,7 +18,7 @@ Template.games_list.events({
 			var gameInstance = Games.findOne({_id: $game.data("id")})
 
 			Session.set("view", gameInstance.platform)
-			Session.set("game_path", gameInstance.romPath)
+			Session.set("game_path", gameInstance.sourcePath)
 
 			var doc = {
 				playingNow: gameInstance.name,

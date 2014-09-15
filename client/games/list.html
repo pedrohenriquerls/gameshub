@@ -1,11 +1,13 @@
 <template name="games_list">
-	<div class="ui items">
-		{{#if hasGames}}
-		{{#each games}}
-			{{> game}}
-		{{/each}}
-		{{else}}
-		<h3>Não temos nenhum jogo ainda</h3>
-		{{/if}}
+	<div class="wide column">
+		<div class="ui four items">
+			{{#if hasGames}}
+			{{#each games}}
+				{{> game}}
+			{{/each}}
+			{{else}}
+			<h3>Não temos nenhum jogo ainda</h3>
+			{{/if}}
+		</div>
 	</div>
 </template>

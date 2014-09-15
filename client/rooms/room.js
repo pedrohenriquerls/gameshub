@@ -1,3 +1,9 @@
+Template.room_item.helpers({
+	playingNow: function(){
+		return this.playingNow ? this.playingNow : "Selecting game..."
+	}
+})
+
 Template.room.created = function(){
 	var currentRoom = this.data
 
