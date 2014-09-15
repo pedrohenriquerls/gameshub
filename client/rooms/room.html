@@ -18,8 +18,16 @@
 </template>
 
 <template name="room">
-  <div class="ui column page grid">
-    {{> UI.dynamic template=view}}
+  <div class="ui grid">
+    <div class="two wide column">
+      player 1
+    </div>
+    <div class="ten wide column" style="padding: 0 11px">
+      {{> UI.dynamic template=view}}
+    </div>
+    <div class="four wide column">
+      Player 2
+    </div>
   </div>
 </template>
 

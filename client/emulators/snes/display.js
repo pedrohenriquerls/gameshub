@@ -7,8 +7,8 @@ define("display", [], function(){
 
   var ratio = window.devicePixelRatio || 1;
   var winWidth = window.innerWidth;
-  var winHeight = window.innerHeight;
-  var activeWidth = Math.round(winHeight * (4 / 3));
+  var winHeight = window.innerHeight - 100;
+  var activeWidth = Math.round(winHeight * (4/3));
 
   var delta;
   var time;
@@ -30,6 +30,11 @@ define("display", [], function(){
 	    container = document.createElement( 'div' );
 	    var parent = document.getElementById(divId)
 	    parent.appendChild( container );
+
+			/*var $parent = $(parent)
+			var winWidth = $parent.width();
+			var winHeight = $parent.height();
+			var activeWidth = Math.round(winHeight * (4 / 3));*/
 
 	    scene = new THREE.Scene();
 
@@ -71,11 +76,12 @@ define("display", [], function(){
 	      composer.addPass( renderModel );
 	      //composer.addPass( effectCrt );
 	      composer.addPass( effectCopy );
-				
+
 	      container.appendChild( renderer.domElement );
 	      has_gl = true;
 
 	      window.addEventListener( 'resize', this.onWindowResize, false );
+				this.onWindowResize()
 	    /*}
 	    catch (e) {
 	      // need webgl
@@ -87,7 +93,7 @@ define("display", [], function(){
 
 	  onWindowResize: function( event ) {
 	    winWidth = window.innerWidth;
-	    winHeight = window.innerHeight;
+	    winHeight = window.innerHeight - 100;
 	    activeWidth = Math.round(winHeight * (4 / 3));
 
 	    renderer.setSize( activeWidth, winHeight );
