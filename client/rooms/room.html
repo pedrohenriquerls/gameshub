@@ -19,14 +19,21 @@
 
 <template name="room">
   <div class="ui grid">
-    <div class="two wide column">
-      player 1
+    <div class="three wide column">
+      <h3 class="ui center aligned image header">
+        <img class="ui image circular" src="{{ownerAvatar}}">
+        <div class="content">1p</div>
+      </h3>
     </div>
     <div class="ten wide column" style="padding: 0 11px">
       {{> UI.dynamic template=view}}
     </div>
-    <div class="four wide column">
-      Player 2
+    <div class="three wide column">
+      <h3 class="ui center aligned image header">
+        <img class="ui image circular" src="{{guestAvatar}}">
+        <div class="content">2p</div>
+      </h3>
+      {{> room_users}}
     </div>
   </div>
 </template>

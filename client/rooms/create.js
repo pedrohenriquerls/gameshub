@@ -17,9 +17,9 @@ Template.create_room.events({
 		if(!Meteor.user()){
 			$('#create_room').modal('hide')
 			$("#sign_in").modal("show");
-			return 
+			return
 		}
-			
+
 		var $title = tmpl.$("#title")
 		var newRoom = {
 			title: $title.val(),
@@ -28,12 +28,13 @@ Template.create_room.events({
 
 		if(trimInput(newRoom.title) != ""){
 			$title.parent().removeClass("error")
+
 			var newRoomId = Rooms.insert(newRoom)
 
 			if(newRoomId){
 				$('#create_room').modal('hide')
 				Router.go("/room/"+newRoomId)
-			}	
+			}
 		}else{
 			$title.parent().addClass("error")
 		}

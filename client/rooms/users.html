@@ -1,0 +1,9 @@
+<template name="room_users">
+  {{#each users}}
+    {{> room_user_item}}
+  {{/each}}
+</template>
+
+<template name="room_user_item">
+  {{user.email}}
+</template>

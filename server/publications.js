@@ -1,5 +1,5 @@
 Meteor.publish('rooms', function(){
-	return Rooms.find({closed: false}, {
+	return Rooms.find({}, {
 			img: 1,
 			playingNow: 1,
 			title: 1,
@@ -16,14 +16,13 @@ Meteor.publish('game', function(gameId){
 });
 
 Meteor.publish('room', function(roomId){
-  Meteor.publishWithRelations({
-    handle: this,
-    collection: Rooms,
-    filter: roomId,
-    mappings: [{
-      key: 'users',
-      collection: Meteor.users,
-      filter: {"status.online": true}
-    }]
-  });
+	return Rooms.find({_id: roomId})
 });
+
+Meteor.publish('roomUsers', function(roomId){
+	return  Meteor.users.find({currentRoom: roomId})
+})
+
+Meteor.publish('usersOnlineWithoutRoom', function(){
+	return  Meteor.users.find({"status.online": true}, { "currentRoom" : { "$exists" : false } } )
+})

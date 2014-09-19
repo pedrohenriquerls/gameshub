@@ -22,4 +22,20 @@ Meteor.startup(function () {
 		}
 		Games.insert(mk)
 	}
+
+	if (Accounts.loginServiceConfiguration.find({service: 'facebook'}).count()===0) {
+	  Accounts.loginServiceConfiguration.insert({
+	    service: "facebook",
+	    appId: "1478661669075033",
+	    secret: "1eb3afc31d71323c80a672194ec30723"
+	  });
+	}
+
+	if (Accounts.loginServiceConfiguration.find({service: 'twitter'}).count()===0) {
+		Accounts.loginServiceConfiguration.insert({
+			service: "twitter",
+			appId: "EeSvFC9t5pIs20xICEhlMpJ55",
+			secret: "qHVcLhOrLPdP3AP01pcb3LsTIR6W7jg2qBPgQSlUQ4GVNK1H53"
+		});
+	}
 })

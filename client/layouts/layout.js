@@ -1,6 +1,7 @@
 Template.layout.rendered = function(){
 	Deps.autorun(function(){
-		$('#sign_in').modal("hide")
+		if(Meteor.userId())
+			$('#sign_in').modal("hide")
 	});
 }
 
@@ -9,6 +10,9 @@ Template.layout.helpers({
 })
 
 Template.layout.events({
+	'click #signin_btn': function(e, tmpl){
+		$('#sign_in').modal("show")
+	},
 	'click #create_room_btn': function(e, tmpl) {
 		e.stopPropagation()
 

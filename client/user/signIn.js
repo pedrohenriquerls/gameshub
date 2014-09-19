@@ -23,6 +23,12 @@ Template.signIn.events({
   "click #sigin_cancel_btn": function(e, tmpl){
     $('#sign_in').modal("hide")
     Router.go("home")
+  },
+  "click #twitter_btn": function(e, tmpl){
+    Meteor.loginWithTwitter();
+  },
+  "click #facebook_btn": function(e, tmpl){
+    Meteor.loginWithFacebook();
   }
 });
 

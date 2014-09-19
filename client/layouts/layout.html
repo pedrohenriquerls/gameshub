@@ -1,14 +1,23 @@
 <template name="layout">
-  {{> user_menu}}
+  <!--{{> yield region="sidebar"}}-->
   <div class="ui large fixed transparent main menu">
     <div class="container">
       <a class="launch item" href="{{pathFor 'home'}}">
-        <i class="icon-gamepad"></i> 
+        <i class="icon-gamepad"></i>
         <b>GamesHUB</b>
       </a>
-      
+
       <div class="right menu">
-        {{> yield region="rightMenu"}}
+        {{#if currentUser}}
+          {{> yield region="rightMenu"}}
+        {{else}}
+          <div class="ui item">
+            <div class="ui basic button" id="signin_btn">
+              <i class="icon user"></i>
+              SignIn
+            </div>
+          </div>
+        {{/if}}
 
         {{> signOut}}
       </div>
@@ -16,7 +25,7 @@
   </div>
 
   <div class="main container">
-    {{>user_menu_launch_btn}}
+    <!--{{>user_menu_launch_btn}}-->
     {{>yield}}
   </div>
   {{> yield region="tmp"}}

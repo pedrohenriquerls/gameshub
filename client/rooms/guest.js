@@ -3,6 +3,7 @@ Template.room_guest.rendered = function(){
 
   roomConnection.on('open', function() {
     roomConnection.on('data', function(imgData){
+			console.log(imgData)
       if(Template.room_guest.guestCTX){
 				var image = new Image();
 				image.src = imgData
@@ -15,7 +16,7 @@ Template.room_guest.rendered = function(){
 				guestCanvas.width=256
 				guestCanvas.height=224
 
-				var display = require("display")			
+				var display = require("display")
 				display.init(false, guestCanvas, "guestDisplay")
 				display.animate()
 			}

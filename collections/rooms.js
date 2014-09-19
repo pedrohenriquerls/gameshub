@@ -7,6 +7,7 @@ Rooms.allow({
 
     doc.createdAt = Date()
     doc.ownerId = userId
+    doc.ownerAvatarImg = Meteor.user().avatar
     doc.private = doc.password != ""
 
     doc.img = ""

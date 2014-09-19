@@ -1,8 +1,10 @@
 accounts-base@1.0.0
+accounts-facebook@1.0.0
+accounts-oauth@1.0.0
 accounts-password@1.0.0
+accounts-twitter@1.0.0
 amd:manager@0.0.5
 application-configuration@1.0.0
-arunoda:streams@0.1.17
 autoupdate@1.0.4
 binary-heap@1.0.0
 blaze-tools@1.0.0
@@ -19,6 +21,7 @@ ctl@1.0.0
 deps@1.0.1
 ejson@1.0.0
 email@1.0.2
+facebook@1.0.0
 follower-livedata@1.0.0
 geojson-utils@1.0.0
 html-tools@1.0.0
@@ -39,8 +42,10 @@ mizzao:user-status@0.6.2
 mongo-livedata@1.0.3
 mrt:define@0.10.0
 mrt:nprogress@0.1.0
-mrt:publish-with-relations@0.1.5
 npm-bcrypt@0.7.7
+oauth1@1.0.0
+oauth2@1.0.0
+oauth@1.0.0
 observe-sequence@1.0.1
 ordered-dict@1.0.0
 pedrohenriquerls:peerjs@0.0.1
@@ -58,6 +63,7 @@ srp@1.0.0
 standard-app-packages@1.0.0
 templating@1.0.4
 three.js@0.0.0
+twitter@1.0.0
 ui@1.0.0
 underscore@1.0.0
 webapp@1.0.2
