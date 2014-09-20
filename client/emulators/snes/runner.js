@@ -49,6 +49,7 @@ Template.snes.rendered = function(){
   function loadRom( url ) {
     var request = new XMLHttpRequest();
     request.onload = function(){
+      $("#loader").remove()
       Module.FS_createDataFile("/", "_.smc", new Uint8Array(request.response) , true, true);
       core.snesStart();
 
