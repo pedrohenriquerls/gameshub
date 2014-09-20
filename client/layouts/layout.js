@@ -3,6 +3,12 @@ Template.layout.rendered = function(){
 		if(Meteor.userId())
 			$('#sign_in').modal("hide")
 	});
+
+	Deps.autorun(function(){
+		if ( Session.get('firstLoaded') === true ) {
+			$('#overlay_loader').fadeOut();
+		}
+	});
 }
 
 Template.layout.helpers({

@@ -6,7 +6,6 @@ Template.room_item.helpers({
 
 Template.room.helpers({
 	ownerAvatar: function(){
-		console.log(this)
 		var avatarImg = this.ownerAvatarImg
 		return avatarImg ? avatarImg : "/images/avatar.png"
 	},
@@ -41,7 +40,7 @@ Template.room.destroyed = function(){
 	var currentRoom = this.data
 
 	if(currentRoom.ownerId == Meteor.userId()){
-		Rooms.update(currentRoom._id, {$set: {closed: true}})
+		Rooms.remove(currentRoom._id)
 	}
 
 	if(roomConnection)

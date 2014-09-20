@@ -27,6 +27,10 @@
   <div class="main container">
     <!--{{>user_menu_launch_btn}}-->
     {{>yield}}
+
+    <div class="ui active dimmer" id="overlay_loader">
+      <div class="ui loader"></div>
+    </div>
   </div>
   {{> yield region="tmp"}}
 
