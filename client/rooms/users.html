@@ -1,9 +1,16 @@
 <template name="room_users">
+  <div class="ui animated list">
   {{#each users}}
     {{> room_user_item}}
   {{/each}}
+  </div>
 </template>
 
 <template name="room_user_item">
-  {{user.email}}
+  <div class="item">
+    <img class="ui avatar image" src="{{avatar}}">
+    <div class="content">
+      <div class="header">{{name}}</div>
+    </div>
+  </div>
 </template>

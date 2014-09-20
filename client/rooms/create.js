@@ -23,7 +23,9 @@ Template.create_room.events({
 		var $title = tmpl.$("#title")
 		var newRoom = {
 			title: $title.val(),
-			password: tmpl.$("#password").val()
+			password: tmpl.$("#password").val(),
+			ownerId: Meteor.userId(),
+			ownerAvatarImg: Meteor.user().avatar
 		}
 
 		if(trimInput(newRoom.title) != ""){

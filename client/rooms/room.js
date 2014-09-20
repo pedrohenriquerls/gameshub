@@ -8,10 +8,6 @@ Template.room.helpers({
 	ownerAvatar: function(){
 		var avatarImg = this.ownerAvatarImg
 		return avatarImg ? avatarImg : "/images/avatar.png"
-	},
-	guestAvatar: function(){
-		var avatarImg = this.secondPlayerAvatarImg
-		return avatarImg ? owner.avatar : "/images/avatar.png"
 	}
 })
 
@@ -21,6 +17,7 @@ Template.room.created = function(){
 		Meteor.call('setCurrentRoom', Meteor.userId(), currentRoom._id);
 
 		if(currentRoom.ownerId == Meteor.userId() || !currentRoom.ownerId){
+			Meteor.subscribe('secondPlayerAvatar', currentRoom._id)
 			Session.set("view", "games_list")
 
 			peerJSInstance.on("connection", function(conn){

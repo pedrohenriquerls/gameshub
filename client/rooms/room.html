@@ -29,11 +29,11 @@
       {{> UI.dynamic template=view}}
     </div>
     <div class="three wide column">
-      <h3 class="ui center aligned image header">
-        <img class="ui image circular" src="{{guestAvatar}}">
-        <div class="content">2p</div>
-      </h3>
-      {{> room_users}}
+      {{#if secondPlayerSelected}}
+        {{> second_player_avatar}}
+      {{else}}
+        {{> room_users}}
+      {{/if}}
     </div>
   </div>
 </template>
@@ -42,7 +42,11 @@
   <div class="ui item">
     <div class="ui basic button" id="close_room_btn">
       <i class="icon close"></i>
+      {{#if isOwner}}
       Close
+      {{else}}
+      Exit
+      {{/if}}
     </div>
   </div>
 </template>
