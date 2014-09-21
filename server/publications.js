@@ -20,5 +20,9 @@ Meteor.publish('users', function(){
 })
 
 Meteor.publish('roomSecondPlayer', function(roomId){
-	Rooms.findOne({_id: roomId}, {secondPlayerAvatar: 1, secondPlayerId: 1})
+	return Rooms.findOne({_id: roomId}, {secondPlayerAvatar: 1, secondPlayerId: 1})
+})
+
+Meteor.publish('roomInvite', function(){
+	return RoomInvites.find({userId: this.userId})
 })

@@ -34,9 +34,13 @@
   </div>
   {{> yield region="tmp"}}
 
+  {{#unless Meteor.userId}}
   <div id="sign_in" class="ui small modal">
     {{> signIn}}
   </div>
+  {{/unless}}
+
+  {{> invite_trigger}}
 </template>
 
 <template name="layoutWithoutHeaderAndFooter">

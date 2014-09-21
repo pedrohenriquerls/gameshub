@@ -3,3 +3,6 @@ roomConnection = null
 
 Meteor.subscribe("rooms");
 Meteor.subscribe("games");
+
+if(Meteor.userId())
+  Meteor.subscribe("roomInvite");

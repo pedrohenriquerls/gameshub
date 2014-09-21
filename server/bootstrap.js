@@ -1,8 +1,8 @@
 Meteor.startup(function () {
 	if(Meteor.users.find().count() === 0){
-		Accounts.createUser({email: "teste@teste.com", password: "blastoise"})
-		Accounts.createUser({email: "guest@teste.com", password: "blastoise"})
-		Accounts.createUser({email: "guest2@teste.com", password: "blastoise"})
+		Accounts.createUser({name: "teste", email: "teste@teste.com", password: "blastoise"})
+		Accounts.createUser({name: "guest1", email: "guest@teste.com", password: "blastoise"})
+		Accounts.createUser({name: "guest2", email: "guest2@teste.com", password: "blastoise"})
 	}
 
 	if(Games.find().count() === 0){

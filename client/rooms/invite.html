@@ -1,0 +1,54 @@
+<template name="room_invite">
+  <div class="header">
+    Invite
+  </div>
+  <div class="content">
+    <div class="ui two column middle aligned relaxed grid basic segment">
+      <div class="column">
+        <p>{{message}}</p>
+      </div>
+      <div class="column">
+        <div class="ui medium image">
+          <img src="{{gameImg}}">
+        </div>
+      </div>
+    </div>
+    <div class="ui center aligned">
+      <div class="ui buttons">
+        <div class="ui negative button" id="decline_invite">Decline</div>
+        <div class="or"></div>
+        <div class="ui positive button" data-id="{{roomId}}" id="accept_invite">Accept</div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="create_invite">
+  <div class="header">
+    Invite
+  </div>
+  <div class="content">
+    <div class="ui form segment">
+      <div class="field">
+        <div class="ui input">
+          <input type="text" placeholder="Message" id="message">
+        </div>
+      </div>
+      <div class="ui center aligned">
+        <div class="ui buttons">
+          <div class="ui negative button" id="cancel_invite">Cancel</div>
+          <div class="or"></div>
+          <div class="ui positive button" id="send_invite">Invite</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="invite_trigger">
+  {{#if newInvite}}
+  <div id="room_invite" class="ui small modal">
+    {{> room_invite}}
+  </div>
+  {{/if}}
+</template>
