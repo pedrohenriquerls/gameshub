@@ -4,6 +4,13 @@
     <div class="content" style="display: inline-block">
       <div class="header">{{name}}</div>
     </div>
+    <div class="content" style="display: inline-block; float:right; padding: 10px">
+      <div class="header">
+        <i class="icon-gamepad"></i>
+        Room invitation!
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -27,7 +34,7 @@
         <div class="ui buttons">
           <div class="ui negative button" id="decline_invite">Decline</div>
           <div class="or"></div>
-          <div class="ui positive button" data-id="{{roomId}}" id="accept_invite">Accept</div>
+          <div class="ui positive button" id="accept_invite">Accept</div>
         </div>
       </div>
     </div>

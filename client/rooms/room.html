@@ -28,8 +28,10 @@
       {{> UI.dynamic template=view}}
     </div>
     <div class="three wide column">
-      {{#if secondPlayerSelected}}
-        {{> second_player_avatar this}}
+      {{#if haveASecondPlayer}}
+        <h3 class="ui left aligned image header">
+          <img class="ui small image circular" style="display: inline-block;" src="{{guestAvatar}}">
+        </h3>
       {{else}}
         {{#if isOwner}}
           {{> room_users this}}

@@ -4,13 +4,6 @@ Template.room_item.helpers({
 	}
 })
 
-Template.room.helpers({
-	ownerAvatar: function(){
-		var avatarImg = this.ownerAvatarImg
-		return avatarImg ? avatarImg : "/images/avatar.png"
-	}
-})
-
 Template.room.created = function(){
 	var currentRoom = this.data
 	if(currentRoom){
@@ -57,5 +50,14 @@ Template.room.helpers({
 	},
 	isOwner: function(){
 		return (this.ownerId == Meteor.userId())
+	},
+	haveASecondPlayer: function(){
+		return (this.secondPlayerId)
+	},
+	ownerAvatar: function(){
+		return Meteor.users.findOne(this.ownerId).avatar
+	},
+	guestAvatar: function(){
+		return Meteor.users.findOne(this.secondPlayerId).avatar
 	}
 })

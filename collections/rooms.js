@@ -14,7 +14,16 @@ Rooms.allow({
 
     return true
   },
-  update: ownsDocument,
+  update: function(userId, doc){
+    if(!Meteor.user())
+      return false
+
+    var guest = RoomInvites.findOne({roomId: doc._id})
+    if(guest)
+      return (guest.userId == userId)
+
+    return (doc.secondPlayerId == userId || userId == doc.ownerId)
+  },
   remove: ownsDocument
 });
 

@@ -25,7 +25,18 @@ Template.room_invite.helpers({
 })
 
 Template.room_invite.events({
+  "click #accept_invite": function(e, tmpl){
+    var roomId = this.roomId
 
+    Rooms.update({_id: roomId}, {$set: {
+        secondPlayerAvatar: Meteor.user().avatar,
+        secondPlayerId: Meteor.userId()
+      }
+    })
+
+    Router.go(Router.routes['room'].url({_id: roomId}))
+    $("#room_invite").modal('hide')
+  }
 })
 
 Template.create_invite.rendered = function(){
@@ -37,14 +48,15 @@ Template.create_invite.events({
     var invite = {
       userId: this._id,
       message: tmpl.$("#message").val(),
-      roomId: this.currentRoom,
+      roomId: Meteor.user().currentRoom,
       name: Meteor.user().name,
       avatar: Meteor.user().avatar
     }
     RoomInvites.insert(invite)
-    $("#room_invite").modal('hide')
+
+    $("#create_invite").modal('hide')
   },
   "click #cancel_invite": function(e, tmpl){
-    $("#room_invite").modal('hide')
+    $("#create_invite").modal('hide')
   }
 })

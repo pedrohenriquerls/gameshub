@@ -3,6 +3,7 @@ Meteor.methods({
     Meteor.users.update({_id: userId}, {$set: {currentRoom: currentRoomId}})
   },
   unsetCurrentRoom: function(userId, currentRoomId){
+    Rooms.update(currentRoomId, {$unset: {secondPlayerId: userId}})
     Meteor.users.update({_id: userId}, {$unset: {currentRoom: currentRoomId}})
   },
   removeInvitesFromUser: function(){
@@ -31,7 +32,5 @@ Accounts.onCreateUser(function(options, user){
     user.avatar = "/images/avatar.png"
     user.name = user.emails[0].address
   }
-
-
 	return user;
 });
