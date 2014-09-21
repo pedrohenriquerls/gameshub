@@ -1,3 +1,11 @@
+renderTemplateIntoRegionWithData = function(region, templateName, data){
+  var layout = UI.render(Layout.extend({template: 'layout'}))
+  UI.DomRange.insert(layout.dom, document.body)
+
+  layout.setData(data)
+  layout.setRegion(region, templateName)
+}
+
 Handlebars.registerHelper('pluralize', function(n, thing) {
   // fairly stupid pluralizer
   if (n === 1) {

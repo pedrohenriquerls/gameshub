@@ -4,6 +4,9 @@ Meteor.methods({
   },
   unsetCurrentRoom: function(userId, currentRoomId){
     Meteor.users.update({_id: userId}, {$unset: {currentRoom: currentRoomId}})
+  },
+  removeInvitesFromUser: function(){
+    RoomInvites.remove({userId: Meteor.userId()})
   }
 });
 
@@ -23,6 +26,12 @@ Accounts.onCreateUser(function(options, user){
     user.email = profile.email
     user.avatar = "http://graph.facebook.com/" + profile.id + "/picture/?type=large"
   }
+
+  if(!user.avatar && !user.name){
+    user.avatar = "/images/avatar.png"
+    user.name = user.emails[0].address
+  }
+
 
 	return user;
 });

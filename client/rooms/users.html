@@ -1,8 +1,13 @@
 <template name="room_users">
+  <div class='ui header'>Challenge someone!</div>
   <div class="ui animated list">
-  {{#each users}}
-    {{> room_user_item}}
-  {{/each}}
+    {{#each users}}
+      {{> room_user_item}}
+    {{/each}}
+  </div>
+
+  <div id="create_invite" class="ui small modal">
+
   </div>
 </template>
 

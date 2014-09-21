@@ -21,6 +21,10 @@ Rooms.allow({
 RoomInvites = new Meteor.Collection('room_invites')
 RoomInvites.allow({
   insert: function(userId, doc){
+    doc.read = false
+    return true
+  },
+  update: function(userId, doc){
     return true
   },
   remove: function(userId, doc){

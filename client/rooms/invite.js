@@ -5,11 +5,46 @@ Template.invite_trigger.helpers({
 })
 
 Template.room_invite.rendered = function(){
-  $("#room_invite").modal("show");
-  console.log(this.data)
-  RoomInvites.remove(this._id)
+  var invite = this.data
+  if(invite){
+    $("#room_invite").modal('setting', {
+      onClose: function(){
+        RoomInvites.remove(invite._id)
+      },
+      onHide: function(){
+        RoomInvites.remove(invite._id)
+      }
+    }).modal("show")
+  }
 }
+
+Template.room_invite.helpers({
+  room: function(){
+    return Rooms.findOne(this.roomId)
+  }
+})
 
 Template.room_invite.events({
 
+})
+
+Template.create_invite.rendered = function(){
+  $("#create_invite").modal('show')
+}
+
+Template.create_invite.events({
+  "click #send_invite": function(e, tmpl){
+    var invite = {
+      userId: this._id,
+      message: tmpl.$("#message").val(),
+      roomId: this.currentRoom,
+      name: Meteor.user().name,
+      avatar: Meteor.user().avatar
+    }
+    RoomInvites.insert(invite)
+    $("#room_invite").modal('hide')
+  },
+  "click #cancel_invite": function(e, tmpl){
+    $("#room_invite").modal('hide')
+  }
 })

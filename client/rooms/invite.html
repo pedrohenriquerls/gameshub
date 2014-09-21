@@ -1,37 +1,46 @@
-<template name="room_invite">
+<template name="invite_header">
   <div class="header">
-    Invite
+    <img class="ui avatar image" src="{{avatar}}">
+    <div class="content" style="display: inline-block">
+      <div class="header">{{name}}</div>
+    </div>
   </div>
+</template>
+
+<template name="room_invite">
+  {{> invite_header this}}
   <div class="content">
-    <div class="ui two column middle aligned relaxed grid basic segment">
-      <div class="column">
-        <p>{{message}}</p>
-      </div>
-      <div class="column">
-        <div class="ui medium image">
-          <img src="{{gameImg}}">
+    <div class="ui form segment">
+      <div class="field">
+        <div class="ui grid">
+          <div class="ui eleven wide column">
+            <p>{{message}}</p>
+          </div>
+          <div class="ui five wide column">
+            <div class="ui medium image" style="height: 161px">
+              <img src="{{room.img}}">
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="ui center aligned">
-      <div class="ui buttons">
-        <div class="ui negative button" id="decline_invite">Decline</div>
-        <div class="or"></div>
-        <div class="ui positive button" data-id="{{roomId}}" id="accept_invite">Accept</div>
+      <div class="ui center aligned">
+        <div class="ui buttons">
+          <div class="ui negative button" id="decline_invite">Decline</div>
+          <div class="or"></div>
+          <div class="ui positive button" data-id="{{roomId}}" id="accept_invite">Accept</div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <template name="create_invite">
-  <div class="header">
-    Invite
-  </div>
+  {{> invite_header this}}
   <div class="content">
     <div class="ui form segment">
       <div class="field">
         <div class="ui input">
-          <input type="text" placeholder="Message" id="message">
+          <textarea id="message"></textarea>
         </div>
       </div>
       <div class="ui center aligned">
@@ -46,9 +55,9 @@
 </template>
 
 <template name="invite_trigger">
-  {{#if newInvite}}
-  <div id="room_invite" class="ui small modal">
-    {{> room_invite}}
-  </div>
-  {{/if}}
+  {{#with newInvite}}
+    <div id="room_invite" class="ui small modal">
+      {{> room_invite newInvite}}
+    </div>
+  {{/with}}
 </template>

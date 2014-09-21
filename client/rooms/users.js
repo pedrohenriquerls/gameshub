@@ -6,10 +6,10 @@ Template.room_users.helpers({
 
 Template.room_user_item.helpers({
   name: function(){
-    return this.name ? this.name : this.emails
+    return this.name
   },
   avatar: function(){
-    return this.avatar ? this.avatar : "/images/avatar.png"
+    return this.avatar
   }
 })
 
@@ -17,12 +17,7 @@ Template.room_user_item.events({
   "click .item": function(e, tmpl){
     e.stopPropagation()
 
-    var invite = {
-      userId: this._id,
-      roomId: Meteor.user().currentRoom
-    }
-
-    console.log(invite)
-    RoomInvites.insert(invite)
+    $("#create_invite").empty()
+    UI.insert(UI.renderWithData(Template.create_invite, this), $("#create_invite").get(0))
   }
 })

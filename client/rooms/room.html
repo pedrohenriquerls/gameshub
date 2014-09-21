@@ -29,9 +29,11 @@
     </div>
     <div class="three wide column">
       {{#if secondPlayerSelected}}
-        {{> second_player_avatar}}
+        {{> second_player_avatar this}}
       {{else}}
-        {{> room_users}}
+        {{#if isOwner}}
+          {{> room_users this}}
+        {{/if}}
       {{/if}}
     </div>
   </div>
