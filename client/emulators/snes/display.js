@@ -20,12 +20,17 @@ define("display", [], function(){
   var fxaa;
 
   var snesLoaded = false;
+  var retroArchModule = null
 
   var maincanvas = null
   var me = {
-	  init: function(loaded, canvas, divId) {
+	  init: function(loaded, canvas, divId, Module) {
+	  	retroArchModule = Module
 	  	snesLoaded = loaded
 	  	maincanvas = canvas
+
+	  	maincanvas.width=256
+			maincanvas.height=224
 
 	    container = document.createElement( 'div' );
 	    var parent = document.getElementById(divId)
@@ -131,7 +136,7 @@ define("display", [], function(){
 	    snesTexture.needsUpdate = true;
 
 	    if (snesLoaded) {
-	      snes_mainloop();
+	      retroArchModule['callMain'](retroArchModule['arguments']);
 	    }
 
 	    if (has_gl) {
