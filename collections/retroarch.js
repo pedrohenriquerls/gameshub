@@ -1,0 +1,1 @@
+RetroArch = new Meteor.Collection("retroarch")

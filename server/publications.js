@@ -26,3 +26,7 @@ Meteor.publish('roomSecondPlayer', function(roomId){
 Meteor.publish('roomInvite', function(){
 	return RoomInvites.find({userId: this.userId})
 })
+
+Meteor.publish('retroArch', function(){
+	return RetroArch.find({})
+})

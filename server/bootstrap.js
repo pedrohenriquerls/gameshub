@@ -38,4 +38,13 @@ Meteor.startup(function () {
 			secret: "qHVcLhOrLPdP3AP01pcb3LsTIR6W7jg2qBPgQSlUQ4GVNK1H53"
 		});
 	}
+
+	if(!RetroArch.findOne({emulator: 'snes'})){
+		var retroarchSnes9x = Assets.getText("retroarch_core/snes9x.js_")
+	  var doc = {
+	    emulator: 'snes',
+	    core: retroarchSnes9x
+	  }
+	  RetroArch.insert(doc)
+	}
 })
