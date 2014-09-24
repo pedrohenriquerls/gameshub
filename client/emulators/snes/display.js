@@ -79,7 +79,7 @@ define("display", [], function(){
 	      	composer = new THREE.EffectComposer( renderer );
 
 	      composer.addPass( renderModel );
-	      composer.addPass( effectCrt );
+	      //composer.addPass( effectCrt );
 	      composer.addPass( effectCopy );
 
 	      container.appendChild( renderer.domElement );
@@ -117,9 +117,6 @@ define("display", [], function(){
 	  },
 
 	  animate: function() {
-	  	if(roomConnection)
-	  		roomConnection.send(me.getTexture().toDataURL());
-
   		requestAnimationFrame( me.animate );
   		me.render();
 	  },
