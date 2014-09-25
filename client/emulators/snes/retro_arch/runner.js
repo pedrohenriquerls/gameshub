@@ -1,7 +1,7 @@
 Template.snes.rendered = function(){
 
   var snes9x = RetroArch.findOne({emulator: 'snes'})
-  eval(snes9x.core); 
+  eval(snes9x.core);
 
   var currentRequest = null
 
@@ -10,9 +10,8 @@ Template.snes.rendered = function(){
   	arguments: ["/_.smc"],
     preRun: [],
     postRun: [],
-    preMainLoop:function(){
-      if(roomConnection)
-        roomConnection.send(Module.canvas.toDataURL())
+    broadcastCallback:function(){
+
     },
     canvas: document.createElement('canvas'),
     setStatus: function(text) {
@@ -50,12 +49,17 @@ Template.snes.rendered = function(){
 	  document.getElementById('latency').disabled = true;
 	  document.getElementById('latency-label').style.color = 'gray';*/
 	  Module['callMain'](Module['arguments']);
-	  
+
+    setInterval(function(){
+      if(roomConnection)
+        roomConnection.send(Module.canvas.toDataURL())
+    }, 50)
+
 	  var display = require("display")
 	  display.init(false, Module.canvas, "snes");
 	  display.animate();
   };
   request.open('GET', Session.get("game_path"), true);
   request.responseType = "arraybuffer";
-  request.send();  
+  request.send();
 }
