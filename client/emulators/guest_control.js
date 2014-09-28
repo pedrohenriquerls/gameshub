@@ -87,20 +87,20 @@ define("guest_controller", [], function(){
   };
 
   return {
-    translateKeyPress: function(player, button){
+    translateKeyPress: function(button){
       switch (button) {
-        case "B":       return m.j;
-        case "A":       return m.k;
-        case "Y":       return m.u;
-        case "X":       return m.i;
-        case "SELECT":  return m.n;
-        case "START":   return m.m;
+        case "z":       return m.j;
+        case "x":       return m.k;
+        case "a":       return m.u;
+        case "s":       return m.i;
+        case "c":  return m.n;
+        case "v":   return m.m;
         case "UP":      return m.y;
         case "DOWN":    return m.b;
         case "LEFT":    return m.g;
         case "RIGHT":   return m.h;
-        case "LT":      return m.c;
-        case "RT":      return m.v;
+        case "q":      return m.c;
+        case "w":      return m.v;
       }
     },
     fire: function(event, k) {

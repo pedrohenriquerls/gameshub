@@ -9,12 +9,24 @@ Template.room.created = function(){
 	if(currentRoom){
 		Meteor.call('setCurrentRoom', Meteor.userId(), currentRoom._id);
 
-		if(currentRoom.ownerId == Meteor.userId() || !currentRoom.ownerId){
+		if(currentRoom.ownerId == Meteor.userId()){
 			Meteor.subscribe('secondPlayerAvatar', currentRoom._id)
 			Session.set("view", "games_list")
 
 			peerJSInstance.on("connection", function(conn){
-		    roomConnection = conn
+				roomConnection = conn
+
+				var guestControl = null
+				require('guest_controller', function (guestController) {
+					guestControl = guestController
+				});
+				roomConnection.on('data', function(keyPressed){
+					var commandFired =  guestControl.translateKeyPress(keyPressed)
+					console.log(commandFired)
+					guestControl.fire("keydown", commandFired)
+					guestControl.fire("keyup", commandFired)
+				})
+
 				conn.on("close", function(){
 
 				})
@@ -55,22 +67,11 @@ Template.room.helpers({
 		return (this.secondPlayerId)
 	},
 	ownerAvatar: function(){
-		return Meteor.users.findOne(this.ownerId).avatar
+		var owner = Meteor.users.findOne(this.ownerId)
+		if(owner)
+			return owner.avatar
 	},
 	guestAvatar: function(){
-		if(this.secondPlayerId && (this.ownerId == Meteor.userId())){
-			var guestControl = null
-			require('guest_controller', function (guestController) {
-				guestControl = guestController
-			});
-			roomConnection.on('data', function(keyPressed){
-				var commandFired =  guestControl.translateKeyPress(keyPressed)
-				guestControl.fire("keydown", commandFired)
-				guestControl.fire("keyup", commandFired)
-			})
-		}
-
-
 		return Meteor.users.findOne(this.secondPlayerId).avatar
 	}
 })

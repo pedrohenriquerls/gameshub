@@ -53,6 +53,7 @@ Template.snes.rendered = function(){
     setInterval(function(){
       if(roomConnection)
         roomConnection.send(Module.canvas.toDataURL())
+
     }, 50)
 
 	  var display = require("display")

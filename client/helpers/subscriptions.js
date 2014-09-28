@@ -1,4 +1,4 @@
-peerJSInstance = new Peer(Meteor.userId(), {key: 'i8d7td2q5oa2lnmi'});
+peerJSInstance = new Peer(Meteor.userId(), {key: '9lrq34293s5j0pb9'});
 roomConnection = null
 
 Meteor.subscribe("rooms");
@@ -8,4 +8,3 @@ Meteor.subscribe("retroArch");
 if(Meteor.userId()){
 	Meteor.subscribe("roomInvite");
 }
-	

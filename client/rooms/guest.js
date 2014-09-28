@@ -30,6 +30,21 @@ Template.room_guest.rendered = function(){
 	});
 
 	$(document).keypress(function(e) {
-    roomConnection.send(guestControl.read(e))
+		switch(e.keyCode){
+			case 37:
+				roomConnection.send("LEFT")
+				break
+			case 38:
+				roomConnection.send("UP")
+				break
+			case 39:
+				roomConnection.send("RIGHT")
+				break
+			case 40:
+				roomConnection.send("DOWN")
+				break
+			default:
+				roomConnection.send(String.fromCharCode(e.which))
+		}
 	});
 }
