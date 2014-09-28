@@ -58,6 +58,19 @@ Template.room.helpers({
 		return Meteor.users.findOne(this.ownerId).avatar
 	},
 	guestAvatar: function(){
+		if(this.secondPlayerId && (this.ownerId == Meteor.userId())){
+			var guestControl = null
+			require('guest_controller', function (guestController) {
+				guestControl = guestController
+			});
+			roomConnection.on('data', function(keyPressed){
+				var commandFired =  guestControl.translateKeyPress(keyPressed)
+				guestControl.fire("keydown", commandFired)
+				guestControl.fire("keyup", commandFired)
+			})
+		}
+
+
 		return Meteor.users.findOne(this.secondPlayerId).avatar
 	}
 })

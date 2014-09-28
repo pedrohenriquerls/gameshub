@@ -23,4 +23,13 @@ Template.room_guest.rendered = function(){
 			});
 		});
 	}
+
+	var guestControl = null
+	require('guest_controller', function (guestController) {
+		guestControl = guestController
+	});
+
+	$(document).keypress(function(e) {
+    roomConnection.send(guestControl.read(e))
+	});
 }
