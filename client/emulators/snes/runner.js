@@ -11,7 +11,8 @@ Template.snes.rendered = function(){
     preRun: [],
     postRun: [],
     broadcastCallback:function(){
-
+      if(roomConnection)
+        roomConnection.send(Module.canvas.toDataURL())
     },
     canvas: document.createElement('canvas'),
     setStatus: function(text) {
@@ -49,12 +50,6 @@ Template.snes.rendered = function(){
 	  document.getElementById('latency').disabled = true;
 	  document.getElementById('latency-label').style.color = 'gray';*/
 	  Module['callMain'](Module['arguments']);
-
-    setInterval(function(){
-      if(roomConnection)
-        roomConnection.send(Module.canvas.toDataURL())
-
-    }, 50)
 
 	  var display = require("display")
 	  display.init(false, Module.canvas, "snes");
