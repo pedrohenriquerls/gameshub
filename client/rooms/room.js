@@ -17,15 +17,11 @@ Template.room.created = function(){
 				roomConnection = conn
 				window.roomConnection = conn
 
-				var guestControl = null
-				require('guest_controller', function (guestController) {
-					guestControl = guestController
-				});
+				var guestControl = require('guest_controller')
 				roomConnection.on('data', function(keyPressed){
 					var commandFired =  guestControl.translateKeyPress(keyPressed)
 					console.log(commandFired)
-					guestControl.fire("keydown", commandFired)
-					guestControl.fire("keyup", commandFired)
+					$(document).simulate("key-combo", {combo: commandFired})
 				})
 
 				conn.on("close", function(){

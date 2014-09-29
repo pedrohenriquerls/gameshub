@@ -89,18 +89,18 @@ define("guest_controller", [], function(){
   return {
     translateKeyPress: function(button){
       switch (button) {
-        case "z":       return m.j;
-        case "x":       return m.k;
-        case "a":       return m.u;
-        case "s":       return m.i;
-        case "c":  return m.n;
-        case "v":   return m.m;
-        case "UP":      return m.y;
-        case "DOWN":    return m.b;
-        case "LEFT":    return m.g;
-        case "RIGHT":   return m.h;
-        case "q":      return m.c;
-        case "w":      return m.v;
+        case "z":       return 'j';
+        case "x":       return 'k';
+        case "a":       return 'u';
+        case "s":       return 'i';
+        case "c":  return 'n';
+        case "v":   return 'm';
+        case "UP":      return 'y';
+        case "DOWN":    return 'b';
+        case "LEFT":    return 'g';
+        case "RIGHT":   return 'h';
+        case "q":      return 'c';
+        case "w":      return 'v';
       }
     },
     fire: function(event, k) {
