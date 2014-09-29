@@ -44,6 +44,7 @@ mizzao:user-status@0.6.2
 mongo-livedata@1.0.3
 mrt:define@0.10.0
 mrt:nprogress@0.1.0
+mrt:require@0.1.0
 npm-bcrypt@0.7.7
 oauth1@1.0.0
 oauth2@1.0.0

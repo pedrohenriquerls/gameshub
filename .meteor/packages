@@ -9,7 +9,6 @@ accounts-base
 accounts-password
 jquery
 less
-underscore
 three.js
 mrt:define
 mrt:nprogress
@@ -18,4 +17,5 @@ mizzao:user-status
 accounts-facebook
 accounts-twitter
 meteorhacks:kadira
-
+underscore
+mrt:require

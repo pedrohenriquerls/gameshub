@@ -13,7 +13,7 @@ Template.snes.rendered = function(){
     broadcastCallback:function(){
       if(roomConnection){
         var def = $.Deferred();
-        def.resolve(roomConnection.send(Module.canvas.toDataURL())) 
+        def.resolve(roomConnection.send(Module.canvas.toDataURL()))
       }
     },
     canvas: document.createElement('canvas'),
@@ -28,9 +28,8 @@ Template.snes.rendered = function(){
   };
   Module.setStatus('Downloading...');
 
-  require('retroarch_snes9x', function (snesProcessor) {
-    snesProcessor.setModule(Module);
-  });
+  var snesProcessor = require('retroarch_snes9x')
+  snesProcessor.setModule(Module);
 
   var request = new XMLHttpRequest();
   request.onload = function(){
