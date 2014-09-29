@@ -31,6 +31,7 @@ define("display", [], function(){
 
 	  	maincanvas.width=256
 			maincanvas.height=224
+			maincanvas.id = "canvas"
 
 	    container = document.createElement( 'div' );
 	    var parent = document.getElementById(divId)

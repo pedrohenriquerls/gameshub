@@ -15,6 +15,7 @@ Template.room.created = function(){
 
 			peerJSInstance.on("connection", function(conn){
 				roomConnection = conn
+				window.roomConnection = conn
 
 				var guestControl = null
 				require('guest_controller', function (guestController) {

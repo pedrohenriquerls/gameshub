@@ -11,8 +11,10 @@ Template.snes.rendered = function(){
     preRun: [],
     postRun: [],
     broadcastCallback:function(){
-      if(roomConnection)
-        roomConnection.send(Module.canvas.toDataURL())
+      if(roomConnection){
+        var def = $.Deferred();
+        def.resolve(roomConnection.send(Module.canvas.toDataURL())) 
+      }
     },
     canvas: document.createElement('canvas'),
     setStatus: function(text) {
