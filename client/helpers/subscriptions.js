@@ -3,7 +3,6 @@ roomConnection = null
 
 Meteor.subscribe("rooms");
 Meteor.subscribe("games");
-Meteor.subscribe("retroArch");
 
 if(Meteor.userId()){
 	Meteor.subscribe("roomInvite");

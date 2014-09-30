@@ -8,6 +8,10 @@ Meteor.methods({
   },
   removeInvitesFromUser: function(){
     RoomInvites.remove({userId: Meteor.userId()})
+  },
+  getRetroarchCore: function(platform){
+    var retroarchCore = RetroArch.findOne({emulator: platform})
+    return retroarchCore ? retroarchCore.core : null
   }
 });
 
