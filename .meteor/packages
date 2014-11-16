@@ -4,12 +4,12 @@
 # but you can also edit it by hand.
 
 standard-app-packages
-cmather:iron-router@0.8.2
+iron:router
 accounts-base
 accounts-password
 jquery
 less
-three.js
+mrt:three.js
 mrt:define
 mrt:nprogress
 pedrohenriquerls:peerjs
