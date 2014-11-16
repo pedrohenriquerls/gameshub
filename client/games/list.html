@@ -1,13 +1,20 @@
 <template name="games_list">
-	<div class="wide column">
-		<div class="ui four items">
-			{{#if hasGames}}
+	{{#if hasGames}}
+	<div class="six wide column">
+		<div class="ui list">
 			{{#each games}}
 				{{> game}}
 			{{/each}}
-			{{else}}
-			<h3>Não temos nenhum jogo ainda</h3>
-			{{/if}}
 		</div>
 	</div>
+	<div class="ten wide column">
+		<div class="ui segment overview">
+		  <h2 id="title">A header</h2>
+		  <img class="ui medium right floated image" id="cover" src="/images/demo/photo.jpg">
+		  <p id="description">Te eum doming eirmod, nominati pertinacia argumentum ad his. Ex eam alia facete scriptorem, est autem aliquip detraxit at. Usu ocurreret referrentur at, cu epicurei appellantur vix. Cum ea laoreet recteque electram, eos choro alterum definiebas in. Vim dolorum definiebas an. Mei ex natum rebum iisque.</p>
+		</div>
+	</div>
+	{{else}}
+		<h3>Não temos nenhum jogo ainda</h3>
+	{{/if}}
 </template>

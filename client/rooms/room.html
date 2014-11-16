@@ -19,6 +19,9 @@
 
 <template name="room">
   <div class="ui grid">
+  {{#unless gameHasSelected}}
+    {{> UI.dynamic template='games_list'}}
+  {{else}}
     <div class="three wide column">
       <h3 class="ui right aligned header">
         <img class="ui small image circular" style="display: inline-block;" src="{{ownerAvatar}}">
@@ -38,6 +41,7 @@
         {{/if}}
       {{/if}}
     </div>
+  {{/unless}}
   </div>
 </template>
 

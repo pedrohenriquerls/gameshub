@@ -11,7 +11,6 @@ Template.room.created = function(){
 
 		if(currentRoom.ownerId == Meteor.userId()){
 			Meteor.subscribe('secondPlayerAvatar', currentRoom._id)
-			Session.set("view", "games_list")
 
 			peerJSInstance.on("connection", function(conn){
 				roomConnection = conn
@@ -54,6 +53,9 @@ Template.room.destroyed = function(){
 }
 
 Template.room.helpers({
+	gameHasSelected: function(){
+		return !(_.isEmpty(Session.get("game_path")))
+	},
 	view: function(){
 		return Session.get("view")
 	},

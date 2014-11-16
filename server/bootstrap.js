@@ -6,21 +6,15 @@ Meteor.startup(function () {
 	}
 
 	if(Games.find().count() === 0){
-		var smw = {
-			name: "Super Mario World",
-			img: "/snes/smc.png",
-			sourcePath: "/snes/mario.smc",
-			platform: "snes"
-		}
-		Games.insert(smw)
-
-		var mk = {
-			name: "Mortal Kombat 3",
-			img: "/snes/mortalKombat.png",
-			sourcePath: "/snes/mortal_kombat.smc",
-			platform: "snes"
-		}
-		Games.insert(mk)
+		console.log("Criando acervo de jogos do SNES")
+		//Snes
+		var gamesDocuments = JSON.parse(Assets.getText("games_source/snes.json"))
+		_.each(gamesDocuments, function(doc){
+			if(!_.isEmpty(doc.title)){
+				console.log(doc.title)
+				Games.insert(doc)
+			}
+		})
 	}
 
 	if (Accounts.loginServiceConfiguration.find({service: 'facebook'}).count()===0) {

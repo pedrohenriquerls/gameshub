@@ -1,11 +1,9 @@
 <template name="game">
-	<div class="item play_game" data-id="{{_id}}">
-    <div class="ui image" >
-      <img src="{{img}}" style="height:161px; width:265px">
-    </div>
+	<div class="item play_game" data-id="{{_id}}" data-description="{{description}}" data-title="{{title}}" data-cover="{{img}}">
+    <img class="ui avatar image" src="{{img}}">
     <div class="content">
-      <div style="display: inline-block">{{capitalize name}}</div>
-      <p class="description"></p>
+      <div class="header">{{capitalize title}}</div>
+      <!-- {{description}} -->
     </div>
   </div>
 </template>
