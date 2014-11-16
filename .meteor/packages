@@ -11,7 +11,6 @@ jquery
 less
 mrt:three.js
 mrt:define
-mrt:nprogress
 pedrohenriquerls:peerjs
 mizzao:user-status
 accounts-facebook
@@ -19,3 +18,5 @@ accounts-twitter
 meteorhacks:kadira
 underscore
 mrt:require
+multiply:iron-router-progress
+
