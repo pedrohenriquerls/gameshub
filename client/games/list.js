@@ -1,3 +1,9 @@
+Template.games_list.rendered = function(){
+	var containerHeight = $(".main.container").height()
+	var $gamesList = $("#games_list")
+	$gamesList.css("height", containerHeight)
+}
+
 Template.games_list.helpers({
 	hasGames: function(){
 		return (Games.find({}).count() > 0)
@@ -9,16 +15,22 @@ Template.games_list.helpers({
 
 Template.games_list.events({
 	"mouseenter .play_game": function(e, tmpl){
+		e.stopImmediatePropagation();
 		var $game = $(e.currentTarget)
 		$game.addClass("selected_game")
 
 		$("#title").text($game.data("title"))
 		$("#description").text($game.data("description"))
 		$("#cover").attr("src", $game.data("cover"))
+
+		$(".overview").show()
 	},
 	"mouseleave .play_game": function(e, tmpl){
+		e.stopImmediatePropagation();
 		var $game = $(e.currentTarget)
 		$game.removeClass("selected_game")
+
+		$(".overview").hide();
 	},
 	"click .play_game": function(e, tmpl){
 		e.stopPropagation()
